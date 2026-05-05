@@ -5,7 +5,7 @@ import { PricingPlans } from "@/components/PricingPlans"
 export const metadata: Metadata = {
   title: "Pricing · Sigilix",
   description:
-    "Sigilix pricing — Free, Pro, and Max. Transparent rate windows, no per-seat surprises, unlimited reviewers.",
+    "Sigilix pricing — Free, Pro at $20 per seat per month, and Max at $40 per seat per month. Generous free tier so you can prove it on your repos first.",
 }
 
 export default function PricingPage() {
@@ -15,14 +15,14 @@ export default function PricingPage() {
         kicker="Pricing"
         title={
           <>
-            Pricing that <span className="text-accent">scales with throughput,</span> not seat count.
+            Per-seat pricing. <span className="text-accent">Predictable.</span> Per-engineer.
           </>
         }
         lead={
           <>
-            Sigilix charges by review density inside a rolling 5-hour window — no per-seat fees, no
-            reviewer caps, and a generous free tier so you can prove it on your repos before paying
-            a dollar.
+            Sigilix charges by reviewer seat — $20 per seat per month on Pro, $40 per seat per month
+            on Max. Free for one seat, forever. Add seats as the team grows; remove them when it
+            doesn&apos;t.
           </>
         }
       />
