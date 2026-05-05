@@ -34,7 +34,7 @@ export function EnsembleExplainer() {
           Five minds. <span className="text-accent">One verdict.</span>
         </h2>
         <p className="text-lg text-text-secondary max-w-2xl mb-16 leading-relaxed">
-          Most "AI reviews" run a single generalist model and hope for the best. Sigilix deploys four domain specialists and a synthesizer that cross-checks their output. The result is depth without noise — a single, authoritative comment that catches what others miss.
+          Most &quot;AI reviews&quot; run a single generalist model and hope for the best. Sigilix deploys four domain specialists and a synthesizer that cross-checks their output. The result is depth without noise — a single, authoritative comment that catches what others miss.
         </p>
 
         {/* Node diagram */}

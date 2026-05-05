@@ -28,7 +28,7 @@ export default function NotFound() {
           Signal lost.
         </h1>
         <p className="text-lg text-text-secondary leading-relaxed mb-12">
-          The page you tried to reach isn't part of the current chart. Easy fix.
+          The page you tried to reach isn&apos;t part of the current chart. Easy fix.
         </p>
         <Link
           href="/"

@@ -45,7 +45,7 @@ const CASES: ReviewCase[] = [
         category: "Performance · index",
         body: (
           <>
-            Even after parameterizing, this <code className="text-text-primary">LIKE '%term%'</code>{" "}
+            Even after parameterizing, this <code className="text-text-primary">{"LIKE '%term%'"}</code>{" "}
             with a leading wildcard can&apos;t use a B-tree index. For the docs table&apos;s ~120K
             rows this is fine; if it grows past 1M, switch to a{" "}
             <code className="text-accent">pg_trgm</code> GIN index or a dedicated FTS column.
