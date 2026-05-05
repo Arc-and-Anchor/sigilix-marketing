@@ -6,20 +6,23 @@ import { useRef } from "react"
 interface Plan {
   name: string
   price: string
+  unit: string
   throughput: string
   features: string[]
   cta: string
   recommended?: boolean
+  contact?: boolean
 }
 
 export const PLANS: Plan[] = [
   {
     name: "Free",
     price: "$0",
-    throughput: "3–4 PRs per 5 hours",
+    unit: "free forever",
+    throughput: "3–4 PRs per 5 hours · 1 seat",
     features: [
       "Full 4+1 specialist ensemble",
-      "1 repository",
+      "1 repository · 1 reviewer seat",
       "Standard support (GitHub issues)",
       "Community Discord",
     ],
@@ -27,11 +30,13 @@ export const PLANS: Plan[] = [
   },
   {
     name: "Pro",
-    price: "$X",
-    throughput: "8–10 PRs per 5 hours",
+    price: "$20",
+    unit: "/ seat / month",
+    throughput: "8–10 PRs per 5 hours · per seat",
     features: [
       "Full ensemble",
       "Up to 10 repositories",
+      "Unlimited reviewer seats — per-seat billing",
       "Priority email support",
       "Team insights dashboard",
       "Custom ignore patterns",
@@ -41,16 +46,34 @@ export const PLANS: Plan[] = [
   },
   {
     name: "Max",
-    price: "$X",
-    throughput: "15–20 PRs per 5 hours",
+    price: "$40",
+    unit: "/ seat / month",
+    throughput: "15–20 PRs per 5 hours · per seat",
     features: [
       "Unlimited repositories",
+      "Unlimited reviewer seats — per-seat billing",
       "Self-hosted runner option",
       "Dedicated support channel",
       "SSO & audit logs",
       "Full API access",
     ],
     cta: "Choose Max",
+  },
+  {
+    name: "Enterprise",
+    price: "Let’s talk",
+    unit: "custom · contact us",
+    throughput: "Unlimited PRs · unlimited seats",
+    features: [
+      "Everything in Max",
+      "Linear triage integration assistance",
+      "Unlimited PRs · no rate windows",
+      "Custom MSA, DPA, and procurement",
+      "On-prem or VPC deployment",
+      "Dedicated solutions engineer",
+    ],
+    cta: "Contact us",
+    contact: true,
   },
 ]
 
@@ -76,7 +99,7 @@ export function PricingTeaser() {
           Pay for review volume, not headcount. Every tier gets the full specialist ensemble.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
           {PLANS.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -101,7 +124,7 @@ export function PricingTeaser() {
                 <span className="font-sans text-3xl font-semibold text-text-primary">
                   {plan.price}
                 </span>
-                <span className="font-sans text-sm text-text-secondary">/month</span>
+                <span className="font-sans text-sm text-text-secondary">{plan.unit}</span>
               </div>
               <p className="font-mono text-xs text-text-muted uppercase tracking-[0.15em] mb-8">
                 {plan.throughput}
@@ -120,7 +143,7 @@ export function PricingTeaser() {
               </ul>
 
               <a
-                href="https://app.sigilix.ai"
+                href={plan.contact ? "mailto:sales@sigilix.ai?subject=Enterprise%20pricing" : "https://app.sigilix.ai"}
                 className={`block w-full text-center font-sans text-sm font-medium h-11 leading-[44px] rounded-sm transition-colors ${
                   plan.recommended
                     ? "bg-accent text-white hover:bg-accent-hover"

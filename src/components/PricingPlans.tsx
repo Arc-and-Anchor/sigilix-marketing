@@ -9,7 +9,7 @@ const EASE = [0.22, 1, 0.36, 1] as const
 export function PricingPlans() {
   return (
     <section id="plans" className="relative py-12 md:py-16 px-6 md:px-8">
-      <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {PLANS.map((plan, i) => (
           <motion.div
             key={plan.name}
@@ -35,7 +35,7 @@ export function PricingPlans() {
               <span className="font-sans text-3xl font-semibold text-text-primary">
                 {plan.price}
               </span>
-              <span className="font-sans text-sm text-text-secondary">/month</span>
+              <span className="font-sans text-sm text-text-secondary">{plan.unit}</span>
             </div>
             <p className="font-mono text-xs text-text-muted uppercase tracking-[0.15em] mb-8">
               {plan.throughput}
@@ -52,7 +52,7 @@ export function PricingPlans() {
               ))}
             </ul>
             <a
-              href={APP_URL}
+              href={plan.contact ? "mailto:sales@sigilix.ai?subject=Enterprise%20pricing" : APP_URL}
               className={`block w-full text-center font-sans text-sm font-medium h-11 leading-[44px] rounded-sm transition-colors ${
                 plan.recommended
                   ? "bg-accent text-white hover:bg-accent-hover"
