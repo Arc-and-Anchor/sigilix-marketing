@@ -1,20 +1,12 @@
 import type { Metadata } from "next"
-import { SignupHero } from "@/components/signup/SignupHero"
-import { PlanGrid } from "@/components/signup/PlanGrid"
-import { AuthAction } from "@/components/signup/AuthAction"
+import { LoginScreen } from "@/components/auth/LoginScreen"
 
 export const metadata: Metadata = {
-  title: "Sign up · Choose your seal",
+  title: "Sign in · Sigilix",
   description:
-    "Pick a Sigilix plan, sign in with GitHub, and start reviewing pull requests in minutes.",
+    "Sign in to Sigilix with GitHub, Google, or email. Authentication is handled securely at app.sigilix.ai.",
 }
 
 export default function SignupPage() {
-  return (
-    <>
-      <SignupHero />
-      <PlanGrid />
-      <AuthAction />
-    </>
-  )
+  return <LoginScreen />
 }

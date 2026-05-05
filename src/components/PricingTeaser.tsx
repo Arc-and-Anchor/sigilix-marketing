@@ -2,7 +2,6 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import Link from "next/link"
 
 interface Plan {
   name: string
@@ -120,8 +119,8 @@ export function PricingTeaser() {
                 ))}
               </ul>
 
-              <Link
-                href={`/signup?plan=${plan.name.toLowerCase()}`}
+              <a
+                href="https://app.sigilix.ai"
                 className={`block w-full text-center font-sans text-sm font-medium h-11 leading-[44px] rounded-sm transition-colors ${
                   plan.recommended
                     ? "bg-accent text-white hover:bg-accent-hover"
@@ -129,7 +128,7 @@ export function PricingTeaser() {
                 }`}
               >
                 {plan.cta}
-              </Link>
+              </a>
             </motion.div>
           ))}
         </div>

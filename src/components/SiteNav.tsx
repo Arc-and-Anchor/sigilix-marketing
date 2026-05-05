@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 interface NavLink {
   href: string
   label: string
+  badge?: string
   /** When `internalAnchor` is set, on `/` we smooth-scroll to it; on
    *  any other route we navigate to `/${internalAnchor}` so the anchor
    *  fires after the page mounts. */
@@ -16,10 +17,12 @@ interface NavLink {
 }
 
 const ROUTES: NavLink[] = [
-  { href: "/#ensemble", label: "Product", internalAnchor: "#ensemble" },
-  { href: "/ide", label: "IDE" },
-  { href: "/docs", label: "Docs" },
-  { href: "/signup#plans", label: "Pricing" },
+  { href: "/", label: "Product" },
+  { href: "/how-it-works", label: "How it Works" },
+  { href: "/examples", label: "Examples" },
+  { href: "/ide", label: "IDE", badge: "Soon" },
+  { href: "https://docs.sigilix.ai", label: "Docs" },
+  { href: "/pricing", label: "Pricing" },
 ]
 
 export function SiteNav() {
@@ -34,9 +37,11 @@ export function SiteNav() {
   }, [])
 
   const isActive = (link: NavLink) => {
+    if (link.href === "/how-it-works") return pathname.startsWith("/how-it-works")
+    if (link.href === "/examples") return pathname.startsWith("/examples")
     if (link.href === "/ide") return pathname.startsWith("/ide")
-    if (link.href === "/docs") return pathname.startsWith("/docs")
-    if (link.href.startsWith("/signup")) return pathname.startsWith("/signup")
+    if (link.href === "/pricing") return pathname.startsWith("/pricing")
+    if (link.href.startsWith("https://docs.")) return false
     return pathname === "/"
   }
 
@@ -72,13 +77,18 @@ export function SiteNav() {
                 key={r.href}
                 href={r.href}
                 className={cn(
-                  "relative py-1 transition-colors",
+                  "relative py-1 transition-colors inline-flex items-center gap-2",
                   active
                     ? "text-text-primary"
                     : "text-text-secondary hover:text-text-primary"
                 )}
               >
-                {r.label}
+                <span>{r.label}</span>
+                {r.badge && (
+                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent border border-accent/40 px-1.5 py-0.5 rounded-sm">
+                    {r.badge}
+                  </span>
+                )}
                 {active && (
                   <span
                     aria-hidden

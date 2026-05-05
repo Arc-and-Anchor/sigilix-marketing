@@ -28,16 +28,23 @@ export function Footer() {
         <FooterCol
           title="Product"
           links={[
-            { label: "Ensemble", href: "/#ensemble" },
+            { label: "How it Works", href: "/how-it-works" },
+            { label: "Examples", href: "/examples" },
             { label: "IDE", href: "/ide" },
-            { label: "Pricing", href: "/signup#plans" },
+            { label: "Pricing", href: "/pricing" },
           ]}
         />
 
         <FooterCol
           title="Resources"
           links={[
-            { label: "Docs", href: "/docs" },
+            {
+              label: "Docs",
+              href: "https://docs.sigilix.ai",
+              external: true,
+            },
+            { label: "Security", href: "/security" },
+            { label: "Benchmarks", href: "/benchmarks" },
             {
               label: "GitHub",
               href: "https://github.com/Arc-and-Anchor/sigilix",
