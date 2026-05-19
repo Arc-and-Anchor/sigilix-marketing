@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 })
 
+const siteUrl = "https://sigilix.ai"
+const previewImage = `${siteUrl}/sigilix-email-footer.jpg`
+
 export const metadata: Metadata = {
   title: {
     default: "Sigilix — A seal of approval on every pull request.",
@@ -22,18 +25,27 @@ export const metadata: Metadata = {
   },
   description:
     "Multi-agent AI code review for GitHub. Four specialists review every PR in parallel; a synthesizer deduplicates noise into one definitive verdict.",
-  metadataBase: new URL("https://sigilix.ai"),
+  metadataBase: new URL(siteUrl),
   openGraph: {
     title: "Sigilix",
     description: "The mark of merge-ready code.",
-    url: "https://sigilix.ai",
+    url: siteUrl,
     siteName: "Sigilix",
+    images: [
+      {
+        url: previewImage,
+        width: 512,
+        height: 512,
+        alt: "Sigilix mark",
+      },
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Sigilix",
     description: "The mark of merge-ready code.",
+    images: [previewImage],
   },
 }
 
